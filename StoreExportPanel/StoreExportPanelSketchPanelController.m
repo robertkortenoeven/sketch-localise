@@ -49,7 +49,7 @@
         cell = [StoreExportPanelSketchPanelCellHeader loadNibNamed:@"StoreExportPanelSketchPanelCellHeader"];
         cell.reuseIdentifier = @"header";
     }
-    cell.titleLabel.stringValue = @"StoreExportPanel";
+    cell.titleLabel.stringValue = @"Localise";
     return cell;
 }
 

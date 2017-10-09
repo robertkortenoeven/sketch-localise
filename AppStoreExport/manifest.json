@@ -15,14 +15,14 @@
      "identifier" : "selectios",
      "shortcut" : "command shift i",
      "script" : "script.cocoscript",
-     "handler" : "selectIOSFolder"
+     "handler" : "localiseIOS"
    },
    {
      "name" : "Select Android Folder",
      "identifier" : "selectandroid",
      "shortcut" : "command shift a",
      "script" : "script.cocoscript",
-     "handler" : "selectAndroidFolder"
+     "handler" : "localiseAndroid"
    },
    {
      "script" : "script.cocoscript",
@@ -44,5 +44,5 @@
        }
      }
    }
- ],
+ ]
 }

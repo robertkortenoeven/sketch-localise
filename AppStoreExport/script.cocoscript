@@ -1,10 +1,3 @@
-var sketch = context.api()
-
-log(sketch.api_version)
-log(sketch.version)
-log(sketch.build)
-log(sketch.full_version)
-
 var onStartup = function(context) {
     log("Started up app store export plugin");
 }
@@ -14,21 +7,14 @@ var onOpenDocument = function(context) {
 }
 
 var onSelectionChanged = function(context) {
-    var selection = document.selectedLayers;
-    log(selection);
+    log("selection changed");
 }
 
-
-
-
-var selectIOSFolder = function () {
-    
+// find pages and layers
+var findPagesNamed = function(pageName) {
+    var predicate = NSPredicate.predicateWithFormat("name == %@", pageName)
+    return findLayersMatchingPredicate_inContainer_filterByType(predicate, nil, MSPage)
 }
-
-var selectAndroidFolder = function () {
-
-}
-
 
 var findLayersMatchingPredicate_inContainer_filterByType = function(predicate, container, layerType) {
     var scope;
@@ -78,3 +64,48 @@ var findFirstLayerMatchingPredicate_inContainer_filterByType = function(predicat
     var filteredArray = findLayersMatchingPredicate_inContainer_filterByType(predicate, container, layerType)
     return filteredArray.firstObject()
 }
+
+
+
+
+
+var localiseIOS = function (context) {
+    var doc = context.document
+    
+    
+    
+    // ------------------------------------
+    //var predicate = NSPredicate.predicateWithFormat("name != %@", "")
+    //var layers = findFirstLayerMatchingPredicate_inContainer_filterByType(predicate, doc.currentPage(), MSTextLayer)
+    
+    // ------------------------------------
+    // select layers by type
+    var selectLayersOfType_inContainer = function(layerType, containerLayer) {
+        
+        // Filter layers using NSPredicate
+        var scope = (typeof containerLayer !== 'undefined') ? [containerLayer children] : [[doc currentPage] children],
+        predicate = NSPredicate.predicateWithFormat("(className == %@)", layerType),
+        layers = [scope filteredArrayUsingPredicate:predicate];
+        
+        // Deselect current selection
+        //[[doc currentPage] deselectAllLayers]
+        
+        // Loop through filtered layers and select them
+        var loop = [layers objectEnumerator], layer;
+        while (layer = [loop nextObject]) {
+            [layer select:true byExpandingSelection:true]
+        }
+        log([layers count] + " " + layerType + "s selected")
+    }
+    selectLayersOfType_inContainer("MSTextLayer")
+    var loopLayers= context.selection.objectEnumerator(), textLayer;
+    while (textLayer = loopLayers.nextObject()) {
+        log(textLayer)
+    }
+}
+
+var localiseAndroid = function (context) {
+    
+}
+
+
