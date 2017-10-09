@@ -1,7 +1,9 @@
-var onRun = function(context) {
-    log("onRun");
-    context.document.showMessage("onRun");
-}
+var sketch = context.api()
+
+log(sketch.api_version)
+log(sketch.version)
+log(sketch.build)
+log(sketch.full_version)
 
 var onStartup = function(context) {
     log("Started up app store export plugin");
@@ -12,8 +14,8 @@ var onOpenDocument = function(context) {
 }
 
 var onSelectionChanged = function(context) {
-    log("onSelectionChanged");
-    context.actionContext.document.showMessage("onSelectionChanged");
+    var selection = document.selectedLayers;
+    log(selection);
 }
 
 

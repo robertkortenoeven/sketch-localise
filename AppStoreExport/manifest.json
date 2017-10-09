@@ -1,21 +1,28 @@
 {
-  "name": "App Store Export",
+  "name": "Localise",
   "description" : "Localises Sketch files using Mac and iOS localisable.strings files",
   "author": "Robert Kortenoeven",
   "authorEmail" : "robert@welivelikethis.net",
-    "homepage": "http://welivelikethis.net",
+  "homepage": "http://welivelikethis.net",
   "identifier" : "PLUGIN_IDENTIFIER",
   "compatibleVersion": 44,
   "build": "PLUGIN_BUILD",
   "version": "PLUGIN_VERSION",
   
-  "commands": [
+  "commands" : [
    {
-     "name" : "Run",
-     "identifier" : "run",
-     "shortcut" : "",
+     "name" : "Select iOS Folder",
+     "identifier" : "selectios",
+     "shortcut" : "command shift i",
      "script" : "script.cocoscript",
-     "handler" : "onRun"
+     "handler" : "selectIOSFolder"
+   },
+   {
+     "name" : "Select Android Folder",
+     "identifier" : "selectandroid",
+     "shortcut" : "command shift a",
+     "script" : "script.cocoscript",
+     "handler" : "selectAndroidFolder"
    },
    {
      "script" : "script.cocoscript",
@@ -26,20 +33,6 @@
          "SelectionChanged.finish" : "onSelectionChanged"
        }
      }
-   },
-   {
-     "name" : "Select iOS Folder",
-     "identifier" : "AppStoreExport.plugin.selectIOS",
-     "shortcut" : "command shift i",
-     "script" : "script.cocoscript",
-     "handler" : "selectIOSFolder"
-   },
-   {
-     "name" : "Select Android Folder",
-     "identifier" : "AppStoreExport.plugin.selectAndroid",
-     "shortcut" : "",
-     "script" : "script.cocoscript",
-     "handler" : "selectAndroidFolder"
    },
    {
      "script" : "StoreExportPanel.framework/StoreExportPanel.js",
@@ -52,12 +45,4 @@
      }
    }
  ],
-  "menu": {
-    "isRoot" : false,
-    "shortcut" : "",
-    "title": "App Store Export",
-    "items": [
-      "run"
-    ]
-  }
 }

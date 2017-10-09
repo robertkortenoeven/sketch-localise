@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E1A4EC561F8BB12F00A84249"
-               BuildableName = "AppStoreExport.sketchplugin"
-               BlueprintName = "AppStoreExport"
-               ReferencedContainer = "container:AppStoreExport.xcodeproj">
+               BuildableName = "Localiser.sketchplugin"
+               BlueprintName = "Localiser"
+               ReferencedContainer = "container:Localiser.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E1A4EC561F8BB12F00A84249"
-            BuildableName = "AppStoreExport.sketchplugin"
-            BlueprintName = "AppStoreExport"
-            ReferencedContainer = "container:AppStoreExport.xcodeproj">
+            BuildableName = "Localiser.sketchplugin"
+            BlueprintName = "Localiser"
+            ReferencedContainer = "container:Localiser.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E1A4EC561F8BB12F00A84249"
-            BuildableName = "AppStoreExport.sketchplugin"
-            BlueprintName = "AppStoreExport"
-            ReferencedContainer = "container:AppStoreExport.xcodeproj">
+            BuildableName = "Localiser.sketchplugin"
+            BlueprintName = "Localiser"
+            ReferencedContainer = "container:Localiser.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
