@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="StoreExportPanelSketchPanelCellSelectFolder">
+            <rect key="frame" x="0.0" y="0.0" width="216" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXW-tv-sKJ">
+                    <rect key="frame" x="6" y="19" width="99" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="5xm-LA-icE"/>
+                        <constraint firstAttribute="width" constant="95" id="QGB-RG-gcE"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="iOS Project Folder" id="lGj-uH-ehb">
+                        <font key="font" metaFont="systemMedium" size="11"/>
+                        <color key="textColor" white="0.0" alpha="0.84999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i0Q-Tx-ZMf">
+                    <rect key="frame" x="125" y="11" width="89" height="32"/>
+                    <buttonCell key="cell" type="push" title="Select…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pLl-BB-oWz">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="qXW-tv-sKJ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="8" id="UBt-S7-1Ty"/>
+                <constraint firstItem="i0Q-Tx-ZMf" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Y6X-Iu-CTL"/>
+                <constraint firstAttribute="trailing" secondItem="i0Q-Tx-ZMf" secondAttribute="trailing" constant="8" id="biE-nI-Hj7"/>
+                <constraint firstItem="qXW-tv-sKJ" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" constant="2" id="yyo-EC-aaW"/>
+            </constraints>
+            <connections>
+                <outlet property="selectButton" destination="i0Q-Tx-ZMf" id="N5A-ms-b8X"/>
+                <outlet property="titleLabel" destination="qXW-tv-sKJ" id="tBQ-If-48b"/>
+            </connections>
+            <point key="canvasLocation" x="8" y="61"/>
+        </customView>
+    </objects>
+</document>

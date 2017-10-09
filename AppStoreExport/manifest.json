@@ -11,14 +11,14 @@
   
   "commands" : [
    {
-     "name" : "Select iOS Folder",
+     "name" : "Localise iOS Project",
      "identifier" : "selectios",
      "shortcut" : "command shift i",
      "script" : "script.cocoscript",
      "handler" : "localiseIOS"
    },
    {
-     "name" : "Select Android Folder",
+     "name" : "Localise Android Project",
      "identifier" : "selectandroid",
      "shortcut" : "command shift a",
      "script" : "script.cocoscript",

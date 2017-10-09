@@ -10,6 +10,7 @@
 #import "StoreExportPanelSketchPanelCell.h"
 #import "StoreExportPanelSketchPanelCellHeader.h"
 #import "StoreExportPanelSketchPanelCellDefault.h"
+#import "StoreExportPanelSketchPanelCellSelectFolder.h"
 #import "StoreExportPanelSketchPanel.h"
 #import "StoreExportPanelSketchPanelDataSource.h"
 
@@ -58,17 +59,28 @@
 }
 
 - (StoreExportPanelSketchPanelCell *)StoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel itemForRowAtIndex:(NSUInteger)index {
-    StoreExportPanelSketchPanelCellDefault *cell = (StoreExportPanelSketchPanelCellDefault *)[panel dequeueReusableCellForReuseIdentifier:@"cell"];
-    if ( ! cell) {
-        cell = [StoreExportPanelSketchPanelCellDefault loadNibNamed:@"StoreExportPanelSketchPanelCellDefault"];
-        cell.reuseIdentifier = @"cell";
-    }
-
     id layer = self.selection[index];
-    cell.titleLabel.stringValue = [layer name];
-    cell.imageView.image = [layer valueForKeyPath:@"previewImages.LayerListPreviewUnfocusedImage"];
 
-    return cell;
+    if (index == 0) {
+        StoreExportPanelSketchPanelCellSelectFolder *cell = (StoreExportPanelSketchPanelCellSelectFolder *)[panel dequeueReusableCellForReuseIdentifier:@"selectFolderCell"];
+        if ( ! cell) {
+            cell = [StoreExportPanelSketchPanelCellSelectFolder loadNibNamed:@"StoreExportPanelSketchPanelCellSelectFolder"];
+            cell.reuseIdentifier = @"selectFolderCell";
+            cell.selectButton.stringValue = @"Select…"; //check if localised file is selected
+        }
+        return cell;
+    } else {
+        StoreExportPanelSketchPanelCellDefault *cell = (StoreExportPanelSketchPanelCellDefault *)[panel dequeueReusableCellForReuseIdentifier:@"layerCell"];
+        if ( ! cell) {
+            cell = [StoreExportPanelSketchPanelCellDefault loadNibNamed:@"StoreExportPanelSketchPanelCellDefault"];
+            cell.reuseIdentifier = @"layerCell";
+        }
+        cell.titleLabel.stringValue = [layer name];
+        cell.imageView.image = [layer valueForKeyPath:@"previewImages.LayerListPreviewUnfocusedImage"];
+        return cell;
+    }
+    
+    return nil;
 }
 
 @end
