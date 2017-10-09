@@ -26,7 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E1A4EC571F8BB12F00A84249 /* App Store Export.sketchplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "App Store Export.sketchplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A4EC571F8BB12F00A84249 /* Store-Export.sketchplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Store-Export.sketchplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A4EC5A1F8BB12F00A84249 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		E1A4EC5C1F8BB12F00A84249 /* script.cocoscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = script.cocoscript; sourceTree = "<group>"; };
 		E1A4EC5E1F8BB12F00A84249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		E1A4EC581F8BB12F00A84249 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1A4EC571F8BB12F00A84249 /* App Store Export.sketchplugin */,
+				E1A4EC571F8BB12F00A84249 /* Store-Export.sketchplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,9 +72,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E1A4EC561F8BB12F00A84249 /* App Store Export */ = {
+		E1A4EC561F8BB12F00A84249 /* Store-Export */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1A4EC611F8BB12F00A84249 /* Build configuration list for PBXNativeTarget "App Store Export" */;
+			buildConfigurationList = E1A4EC611F8BB12F00A84249 /* Build configuration list for PBXNativeTarget "Store-Export" */;
 			buildPhases = (
 				E1A4EC511F8BB12F00A84249 /* Sources */,
 				E1A4EC521F8BB12F00A84249 /* Frameworks */,
@@ -86,9 +86,9 @@
 			);
 			dependencies = (
 			);
-			name = "App Store Export";
+			name = "Store-Export";
 			productName = "App Store Export";
-			productReference = E1A4EC571F8BB12F00A84249 /* App Store Export.sketchplugin */;
+			productReference = E1A4EC571F8BB12F00A84249 /* Store-Export.sketchplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -106,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E1A4EC501F8BB12F00A84249 /* Build configuration list for PBXProject "App Store Export" */;
+			buildConfigurationList = E1A4EC501F8BB12F00A84249 /* Build configuration list for PBXProject "Store-Export" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1A4EC561F8BB12F00A84249 /* App Store Export */,
+				E1A4EC561F8BB12F00A84249 /* Store-Export */,
 			);
 		};
 /* End PBXProject section */
@@ -305,7 +305,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E1A4EC501F8BB12F00A84249 /* Build configuration list for PBXProject "App Store Export" */ = {
+		E1A4EC501F8BB12F00A84249 /* Build configuration list for PBXProject "Store-Export" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1A4EC5F1F8BB12F00A84249 /* Debug */,
@@ -314,7 +314,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1A4EC611F8BB12F00A84249 /* Build configuration list for PBXNativeTarget "App Store Export" */ = {
+		E1A4EC611F8BB12F00A84249 /* Build configuration list for PBXNativeTarget "Store-Export" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1A4EC621F8BB12F00A84249 /* Debug */,
