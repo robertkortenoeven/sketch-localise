@@ -81,7 +81,7 @@
 		E119958D1F8BC99F00737083 /* StoreExportPanelSketchPanelCellHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreExportPanelSketchPanelCellHeader.m; sourceTree = "<group>"; };
 		E119958F1F8BC99F00737083 /* StoreExportPanelSketchPanelCellHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreExportPanelSketchPanelCellHeader.xib; sourceTree = "<group>"; };
 		E11995911F8BC99F00737083 /* StoreExportPanelSketchPanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreExportPanelSketchPanelController.h; sourceTree = "<group>"; };
-		E11995931F8BC99F00737083 /* StoreExportPanelSketchPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreExportPanelSketchPanelController.m; sourceTree = "<group>"; };
+		E11995931F8BC99F00737083 /* StoreExportPanelSketchPanelController.m */ = {isa = PBXFileReference; indentWidth = 8; lastKnownFileType = sourcecode.c.objc; path = StoreExportPanelSketchPanelController.m; sourceTree = "<group>"; };
 		E11995951F8BC99F00737083 /* StoreExportPanelSketchPanelDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreExportPanelSketchPanelDataSource.h; sourceTree = "<group>"; };
 		E11995971F8BC99F00737083 /* CocoaScript.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaScript.framework; sourceTree = "<group>"; };
 		E11995991F8BC99F00737083 /* Mocha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mocha.framework; sourceTree = "<group>"; };
