@@ -60,7 +60,7 @@
 }
 
 - (StoreExportPanelSketchPanelCell *)StoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel itemForRowAtIndex:(NSUInteger)index {
-    id layer = self.selection[index];
+//    id layer = self.selection[index];
 
     if (index == 0) {
         StoreExportPanelSketchPanelCellSelectFolder *cell = (StoreExportPanelSketchPanelCellSelectFolder *)[panel dequeueReusableCellForReuseIdentifier:@"selectFolderCell"];
@@ -77,7 +77,7 @@
             cell.reuseIdentifier = @"layerCell";
         }
         cell.titleTextView.string = [NSString stringWithFormat:@"%lu artboards selected", (unsigned long)[self.selection count]];
-        cell.imageView.image = [layer valueForKeyPath:@"previewImages.LayerListPreviewUnfocusedImage"];
+//        cell.imageView.image = [layer valueForKeyPath:@"previewImages.LayerListPreviewUnfocusedImage"];
         return cell;
     } else { 
         StoreExportPanelSketchPanelCellStart *cell = (StoreExportPanelSketchPanelCellStart *)[panel dequeueReusableCellForReuseIdentifier:@"startLocaliseCell"];
