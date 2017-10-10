@@ -43,6 +43,29 @@
     [self.panel reloadData];
 }
 
+- (void) selectProjectFolder:(id)sender {
+    // create an open documet panel
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    
+    // display the panel
+    [panel beginWithCompletionHandler:^(NSInteger result) {
+        if (result == NSModalResponseOK) {
+            
+            // grab a reference to what has been selected
+            NSURL *theDocument = [[panel URLs]objectAtIndex:0];
+            
+            // write our file name to a label
+//            NSString *theString = [NSString stringWithFormat:@"%@", theDocument];
+//            self.textLabel.stringValue = theString;
+            
+        }
+    }];
+}
+    
+- (void) startLocalisation:(id)sender {
+    NSLog(@"Start localisation");
+}
+
 #pragma mark - StoreExportPanelSketchPanelDataSource
 
 - (StoreExportPanelSketchPanelCell *)headerForStoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel {
@@ -60,7 +83,6 @@
 }
 
 - (StoreExportPanelSketchPanelCell *)StoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel itemForRowAtIndex:(NSUInteger)index {
-//    id layer = self.selection[index];
 
     if (index == 0) {
         StoreExportPanelSketchPanelCellSelectFolder *cell = (StoreExportPanelSketchPanelCellSelectFolder *)[panel dequeueReusableCellForReuseIdentifier:@"selectFolderCell"];
@@ -68,6 +90,8 @@
             cell = [StoreExportPanelSketchPanelCellSelectFolder loadNibNamed:@"StoreExportPanelSketchPanelCellSelectFolder"];
             cell.reuseIdentifier = @"selectFolderCell";
             cell.selectButton.stringValue = @"Select…"; //check if localised file is selected
+            [cell.selectButton setAction:@selector(selectProjectFolder:)];
+            [cell.selectButton setTarget:self];
         }
         return cell;
     } else if (index == 1) {
@@ -76,8 +100,12 @@
             cell = [StoreExportPanelSketchPanelCellDefault loadNibNamed:@"StoreExportPanelSketchPanelCellDefault"];
             cell.reuseIdentifier = @"layerCell";
         }
-        cell.titleTextView.string = [NSString stringWithFormat:@"%lu artboards selected", (unsigned long)[self.selection count]];
-//        cell.imageView.image = [layer valueForKeyPath:@"previewImages.LayerListPreviewUnfocusedImage"];
+        cell.titleTextView.string = @"Select the 'Localizations' folder in your iOS project. This can usually be found in the 'Resources' folder."; //[NSString stringWithFormat:@"Create %d new pages with translated versions of the %lu selected artboards?", 14-1, (unsigned long)[self.selection count]];
+        NSParagraphStyle* tStyle = [NSParagraphStyle defaultParagraphStyle];
+        NSMutableParagraphStyle* tMutStyle = [tStyle mutableCopy];
+        [tMutStyle setAlignment:NSTextAlignmentCenter];
+        [cell.titleTextView setDefaultParagraphStyle:tMutStyle];
+        
         return cell;
     } else { 
         StoreExportPanelSketchPanelCellStart *cell = (StoreExportPanelSketchPanelCellStart *)[panel dequeueReusableCellForReuseIdentifier:@"startLocaliseCell"];
@@ -85,11 +113,16 @@
             cell = [StoreExportPanelSketchPanelCellStart loadNibNamed:@"StoreExportPanelSketchPanelCellStart"];
             cell.reuseIdentifier = @"startLocaliseCell";
             cell.selectButton.stringValue = @"Confirm"; //check if localised file is selected
+            [cell.selectButton setAction:@selector(startLocalisation:)];
+            [cell.selectButton setTarget:self];
         }
         return cell;
     }
     
     return nil;
 }
+
+    
+    
 
 @end
