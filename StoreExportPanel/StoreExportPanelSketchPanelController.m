@@ -23,7 +23,7 @@
         @property (nonatomic, strong) StoreExportPanelSketchPanel *panel;
         @property (nonatomic, copy) NSArray *selection;
         
-        @property (nonatomic, strong) NSMutableArray<NSString *> *languages;
+        @property (nonatomic, strong) NSMutableArray<NSURL *> *languages;
         
         @end
 
@@ -78,9 +78,9 @@
                                 if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
                                         // handle error
                                 }
-                                else if ([isDirectory boolValue]) {
+                                else if ([isDirectory boolValue] && ![[url lastPathComponent] isEqualToString:@"Base.lproj"]) {
                                         // No error and it’s not a directory; do something with the file
-                                        [_languages addObject:[url lastPathComponent]];
+                                        [_languages addObject:url];
                                         
                                         //for reading in the languages:
                                         //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
@@ -136,21 +136,21 @@
                         cell = [StoreExportPanelSketchPanelCellDefault loadNibNamed:@"StoreExportPanelSketchPanelCellDefault"];
                         cell.reuseIdentifier = @"layerCell";
                 }
-                cell.titleTextView.string = _languages.count ? [NSString stringWithFormat:@"Create %lu new pages with translated versions of the current page?", _languages.count-1] : @"Select the 'Localizations' folder for your project. This can usually be found in the 'Resources' folder for standard Xcode projects.";
+                cell.titleTextView.string = _languages.count ? [NSString stringWithFormat:@"\n\nCreate %lu new pages with translated versions of the current page?", _languages.count] : @"Select the 'Localizations' folder for your project. This can usually be found in the 'Resources' folder for standard Xcode projects.";
                 NSParagraphStyle* tStyle = [NSParagraphStyle defaultParagraphStyle];
                 NSMutableParagraphStyle* tMutStyle = [tStyle mutableCopy];
                 [tMutStyle setAlignment:NSTextAlignmentLeft];
                 [cell.titleTextView setDefaultParagraphStyle:tMutStyle];
                 [cell.titleTextView setHorizontallyResizable:YES];
                 [cell.titleTextView
-                 setAutoresizingMask:(NSViewWidthSizable|NSViewHeightSizable)];                
+                 setAutoresizingMask:(NSViewWidthSizable|NSViewHeightSizable)];
                 return cell;
         } else {
                 StoreExportPanelSketchPanelCellStart *cell = (StoreExportPanelSketchPanelCellStart *)[panel dequeueReusableCellForReuseIdentifier:@"startLocaliseCell"];
                 if ( ! cell) {
                         cell = [StoreExportPanelSketchPanelCellStart loadNibNamed:@"StoreExportPanelSketchPanelCellStart"];
                         cell.reuseIdentifier = @"startLocaliseCell";
-                        cell.selectButton.stringValue = @"Confirm"; //check if localised file is selected
+                        cell.selectButton.title = @"Translate"; //check if localised file is selected
                         [cell.selectButton setAction:@selector(startLocalisation:)];
                         [cell.selectButton setTarget:self];
                         cell.selectButton.enabled = _languages.count;
