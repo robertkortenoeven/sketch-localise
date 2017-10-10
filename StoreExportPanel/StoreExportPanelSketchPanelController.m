@@ -11,6 +11,7 @@
 #import "StoreExportPanelSketchPanelCellHeader.h"
 #import "StoreExportPanelSketchPanelCellDefault.h"
 #import "StoreExportPanelSketchPanelCellSelectFolder.h"
+#import "StoreExportPanelSketchPanelCellStart.h"
 #import "StoreExportPanelSketchPanel.h"
 #import "StoreExportPanelSketchPanelDataSource.h"
 
@@ -55,7 +56,7 @@
 }
 
 - (NSUInteger)numberOfRowsForStoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel {
-    return self.selection.count;    // Using self.selection as number of rows in the panel
+    return 3;    // Using self.selection as number of rows in the panel
 }
 
 - (StoreExportPanelSketchPanelCell *)StoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel itemForRowAtIndex:(NSUInteger)index {
@@ -69,14 +70,22 @@
             cell.selectButton.stringValue = @"Select…"; //check if localised file is selected
         }
         return cell;
-    } else {
+    } else if (index == 1) {
         StoreExportPanelSketchPanelCellDefault *cell = (StoreExportPanelSketchPanelCellDefault *)[panel dequeueReusableCellForReuseIdentifier:@"layerCell"];
         if ( ! cell) {
             cell = [StoreExportPanelSketchPanelCellDefault loadNibNamed:@"StoreExportPanelSketchPanelCellDefault"];
             cell.reuseIdentifier = @"layerCell";
         }
-        cell.titleLabel.stringValue = [layer name];
+        cell.titleTextView.string = [NSString stringWithFormat:@"%lu artboards selected", (unsigned long)[self.selection count]];
         cell.imageView.image = [layer valueForKeyPath:@"previewImages.LayerListPreviewUnfocusedImage"];
+        return cell;
+    } else { 
+        StoreExportPanelSketchPanelCellStart *cell = (StoreExportPanelSketchPanelCellStart *)[panel dequeueReusableCellForReuseIdentifier:@"startLocaliseCell"];
+        if ( ! cell) {
+            cell = [StoreExportPanelSketchPanelCellStart loadNibNamed:@"StoreExportPanelSketchPanelCellStart"];
+            cell.reuseIdentifier = @"startLocaliseCell";
+            cell.selectButton.stringValue = @"Confirm"; //check if localised file is selected
+        }
         return cell;
     }
     

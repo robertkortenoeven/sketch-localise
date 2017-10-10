@@ -33,6 +33,9 @@
 		E166A5D51F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = E166A5D31F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.h */; };
 		E166A5D61F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = E166A5D41F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.m */; };
 		E166A5D81F8C3CC7000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = E166A5D71F8C3CC7000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.xib */; };
+		E166A5DC1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.m in Sources */ = {isa = PBXBuildFile; fileRef = E166A5DA1F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.m */; };
+		E166A5DD1F8CA410000D74B7 /* StoreExportPanelSketchPanelCellStart.h in Headers */ = {isa = PBXBuildFile; fileRef = E166A5D91F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.h */; };
+		E166A5DE1F8CA410000D74B7 /* StoreExportPanelSketchPanelCellStart.xib in Resources */ = {isa = PBXBuildFile; fileRef = E166A5DB1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		E166A5D31F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreExportPanelSketchPanelCellSelectFolder.h; sourceTree = "<group>"; };
 		E166A5D41F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreExportPanelSketchPanelCellSelectFolder.m; sourceTree = "<group>"; };
 		E166A5D71F8C3CC7000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreExportPanelSketchPanelCellSelectFolder.xib; sourceTree = "<group>"; };
+		E166A5D91F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreExportPanelSketchPanelCellStart.h; sourceTree = "<group>"; };
+		E166A5DA1F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreExportPanelSketchPanelCellStart.m; sourceTree = "<group>"; };
+		E166A5DB1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreExportPanelSketchPanelCellStart.xib; sourceTree = "<group>"; };
 		E1A4EC571F8BB12F00A84249 /* Localiser.sketchplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Localiser.sketchplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +160,9 @@
 				E166A5D31F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.h */,
 				E166A5D41F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.m */,
 				E166A5D71F8C3CC7000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.xib */,
+				E166A5D91F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.h */,
+				E166A5DA1F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.m */,
+				E166A5DB1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.xib */,
 				E11995851F8BC99F00737083 /* StoreExportPanelSketchPanelCellDefault.h */,
 				E11995871F8BC99F00737083 /* StoreExportPanelSketchPanelCellDefault.m */,
 				E11995891F8BC99F00737083 /* StoreExportPanelSketchPanelCellDefault.xib */,
@@ -207,6 +216,7 @@
 				E11995811F8BC99F00737083 /* StoreExportPanelSketchPanelCell.h in Headers */,
 				E119958C1F8BC99F00737083 /* StoreExportPanelSketchPanelCellHeader.h in Headers */,
 				E11995781F8BC99F00737083 /* StoreExportPanelMSDocument.h in Headers */,
+				E166A5DD1F8CA410000D74B7 /* StoreExportPanelSketchPanelCellStart.h in Headers */,
 				E119957A1F8BC99F00737083 /* StoreExportPanelMSInspectorStackView.h in Headers */,
 				E11995861F8BC99F00737083 /* StoreExportPanelSketchPanelCellDefault.h in Headers */,
 				E119957D1F8BC99F00737083 /* StoreExportPanelSketchPanel.h in Headers */,
@@ -298,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E166A5DE1F8CA410000D74B7 /* StoreExportPanelSketchPanelCellStart.xib in Resources */,
 				E11995901F8BC99F00737083 /* StoreExportPanelSketchPanelCellHeader.xib in Resources */,
 				E11995711F8BC99E00737083 /* StoreExportPanel.h in Resources */,
 				E11995731F8BC99E00737083 /* StoreExportPanel.js in Resources */,
@@ -355,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E166A5DC1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.m in Sources */,
 				E11995751F8BC99E00737083 /* StoreExportPanel.m in Sources */,
 				E11995881F8BC99F00737083 /* StoreExportPanelSketchPanelCellDefault.m in Sources */,
 				E119957F1F8BC99F00737083 /* StoreExportPanelSketchPanel.m in Sources */,

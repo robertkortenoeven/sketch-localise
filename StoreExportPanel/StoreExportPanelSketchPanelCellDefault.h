@@ -11,7 +11,7 @@
 
 @interface StoreExportPanelSketchPanelCellDefault : StoreExportPanelSketchPanelCell
 
-@property (nonatomic, weak) IBOutlet NSTextField *titleLabel;
+@property (nonatomic, weak) IBOutlet NSTextView *titleTextView;
 @property (nonatomic, weak) IBOutlet NSImageView *imageView;
 
 @end

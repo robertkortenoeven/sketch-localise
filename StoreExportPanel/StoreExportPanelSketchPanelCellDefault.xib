@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,29 +9,46 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="VOz-wC-YDv" customClass="StoreExportPanelSketchPanelCellDefault">
-            <rect key="frame" x="0.0" y="0.0" width="212" height="28"/>
+            <rect key="frame" x="0.0" y="0.0" width="212" height="63"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5z4-SI-Jt2">
-                    <rect key="frame" x="31" y="4" width="167" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="L5k-7n-YU5">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" white="0.0" alpha="0.84999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLs-2r-mql">
-                    <rect key="frame" x="8" y="3" width="24" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="7rP-KB-w3U"/>
-                </imageView>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="om7-fl-MrZ">
+                    <rect key="frame" x="8" y="8" width="196" height="47"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tzD-ok-AQR">
+                        <rect key="frame" x="0.0" y="0.0" width="196" height="47"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="UQ5-5i-aZH">
+                                <rect key="frame" x="0.0" y="0.0" width="196" height="47"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="196" height="47"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                                <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="Trj-pR-Jik">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="i18-kV-pHn">
+                        <rect key="frame" x="-100" y="-100" width="16" height="47"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
+            <constraints>
+                <constraint firstItem="om7-fl-MrZ" firstAttribute="top" secondItem="VOz-wC-YDv" secondAttribute="top" constant="8" id="4Xr-01-5BI"/>
+                <constraint firstAttribute="trailing" secondItem="om7-fl-MrZ" secondAttribute="trailing" constant="8" id="BCc-hY-3HM"/>
+                <constraint firstAttribute="bottom" secondItem="om7-fl-MrZ" secondAttribute="bottom" constant="8" id="PAa-pc-R3O"/>
+                <constraint firstItem="om7-fl-MrZ" firstAttribute="leading" secondItem="VOz-wC-YDv" secondAttribute="leading" constant="8" id="cOk-8s-FSf"/>
+            </constraints>
             <connections>
-                <outlet property="imageView" destination="cLs-2r-mql" id="cTN-XB-bVh"/>
-                <outlet property="titleLabel" destination="5z4-SI-Jt2" id="WZj-wM-ReG"/>
+                <outlet property="titleTextView" destination="UQ5-5i-aZH" id="A5m-cW-XX4"/>
             </connections>
-            <point key="canvasLocation" x="186" y="137"/>
+            <point key="canvasLocation" x="186" y="154.5"/>
         </customView>
     </objects>
 </document>
