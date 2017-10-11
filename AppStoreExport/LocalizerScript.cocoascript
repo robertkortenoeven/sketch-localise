@@ -10,8 +10,9 @@ var onSelectionChanged = function(context) {
     log("selection changed");
 }
 
-var testJs = function() {
-    log("yes?.. an elaborate test to see if calling Javaascript from Objective-c works");
+var testJsLocalizer = function() {
+    doc.displayMessage("I'm Mr Meeseeks LOOK AT ME! :)")
+    log("Localizer: elaborate test to see if calling Javascript from Objective-c works");
 }
 
 // find pages and layers

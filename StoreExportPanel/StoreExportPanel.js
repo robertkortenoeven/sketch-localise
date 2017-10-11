@@ -1,22 +1,3 @@
-/*
-// To load this framework, add the following code in your manifest.json
-
-"commands": [
-:
-:
-{
-    "script" : "StoreExportPanel.framework/StoreExportPanel.js",
-    "handlers" : {
-        "actions" : {
-            "Startup" : "onStartup",
-            "OpenDocument":"onOpenDocument",
-            "SelectionChanged.finish" : "onSelectionChanged"
-        }
-    }
-}
-]
-*/
-
 var onStartup = function(context) {
   var StoreExportPanel_FrameworkPath = StoreExportPanel_FrameworkPath || COScript.currentCOScript().env().scriptURL.path().stringByDeletingLastPathComponent().stringByDeletingLastPathComponent();
   var StoreExportPanel_Log = StoreExportPanel_Log || log;
@@ -41,3 +22,7 @@ var onStartup = function(context) {
 var onSelectionChanged = function(context) {
   StoreExportPanel.onSelectionChanged(context);
 };
+
+var testJsExportPanel = function() {
+    log("ExportPanel: an elaborate test to see if calling Javascript from Objective-c works");
+}

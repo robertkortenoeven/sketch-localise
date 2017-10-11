@@ -28,8 +28,9 @@
 		E11995981F8BC99F00737083 /* CocoaScript.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11995971F8BC99F00737083 /* CocoaScript.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E119959A1F8BC99F00737083 /* Mocha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11995991F8BC99F00737083 /* Mocha.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E119959F1F8BC9DC00737083 /* StoreExportPanel.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E119956E1F8BC99E00737083 /* StoreExportPanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E11995AD1F8E439F00737083 /* LocalizerScript.cocoascript in Resources */ = {isa = PBXBuildFile; fileRef = E11995A61F8BCC0900737083 /* LocalizerScript.cocoascript */; };
 		E1414A9C1F8C133900DDCB7D /* manifest.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = E11995A51F8BCC0900737083 /* manifest.json */; };
-		E1414A9D1F8C133E00DDCB7D /* script.cocoscript in CopyFiles */ = {isa = PBXBuildFile; fileRef = E11995A61F8BCC0900737083 /* script.cocoscript */; };
+		E1414A9D1F8C133E00DDCB7D /* LocalizerScript.cocoascript in CopyFiles */ = {isa = PBXBuildFile; fileRef = E11995A61F8BCC0900737083 /* LocalizerScript.cocoascript */; };
 		E166A5D51F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = E166A5D31F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.h */; };
 		E166A5D61F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = E166A5D41F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.m */; };
 		E166A5D81F8C3CC7000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = E166A5D71F8C3CC7000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.xib */; };
@@ -55,7 +56,7 @@
 			dstPath = Contents/Sketch;
 			dstSubfolderSpec = 1;
 			files = (
-				E1414A9D1F8C133E00DDCB7D /* script.cocoscript in CopyFiles */,
+				E1414A9D1F8C133E00DDCB7D /* LocalizerScript.cocoascript in CopyFiles */,
 				E1414A9C1F8C133900DDCB7D /* manifest.json in CopyFiles */,
 				E119959F1F8BC9DC00737083 /* StoreExportPanel.framework in CopyFiles */,
 			);
@@ -87,7 +88,7 @@
 		E11995991F8BC99F00737083 /* Mocha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mocha.framework; sourceTree = "<group>"; };
 		E119959B1F8BC99F00737083 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E11995A51F8BCC0900737083 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
-		E11995A61F8BCC0900737083 /* script.cocoscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = script.cocoscript; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		E11995A61F8BCC0900737083 /* LocalizerScript.cocoascript */ = {isa = PBXFileReference; lastKnownFileType = text; path = LocalizerScript.cocoascript; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		E11995A71F8BCC0900737083 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E166A5D31F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreExportPanelSketchPanelCellSelectFolder.h; sourceTree = "<group>"; };
 		E166A5D41F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreExportPanelSketchPanelCellSelectFolder.m; sourceTree = "<group>"; };
@@ -180,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				E11995A51F8BCC0900737083 /* manifest.json */,
-				E11995A61F8BCC0900737083 /* script.cocoscript */,
+				E11995A61F8BCC0900737083 /* LocalizerScript.cocoascript */,
 				E11995A71F8BCC0900737083 /* Info.plist */,
 			);
 			path = AppStoreExport;
@@ -312,6 +313,7 @@
 				E11995901F8BC99F00737083 /* StoreExportPanelSketchPanelCellHeader.xib in Resources */,
 				E11995711F8BC99E00737083 /* StoreExportPanel.h in Resources */,
 				E11995731F8BC99E00737083 /* StoreExportPanel.js in Resources */,
+				E11995AD1F8E439F00737083 /* LocalizerScript.cocoascript in Resources */,
 				E166A5D81F8C3CC7000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.xib in Resources */,
 				E119958A1F8BC99F00737083 /* StoreExportPanelSketchPanelCellDefault.xib in Resources */,
 			);

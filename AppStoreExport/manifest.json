@@ -14,18 +14,18 @@
      "name" : "Localise iOS Project",
      "identifier" : "selectios",
      "shortcut" : "command shift i",
-     "script" : "script.cocoscript",
+     "script" : "LocalizerScript.cocoascript",
      "handler" : "localiseIOS"
    },
    {
      "name" : "Localise Android Project",
      "identifier" : "selectandroid",
      "shortcut" : "command shift a",
-     "script" : "script.cocoscript",
+     "script" : "LocalizerScript.cocoascript",
      "handler" : "localiseAndroid"
    },
    {
-     "script" : "script.cocoscript",
+     "script" : "LocalizerScript.cocoascript",
      "handlers" : {
        "actions" : {
          "Startup" : "onStartup",

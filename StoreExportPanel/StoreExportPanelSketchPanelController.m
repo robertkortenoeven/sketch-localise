@@ -14,6 +14,11 @@
 #import "StoreExportPanelSketchPanelCellStart.h"
 #import "StoreExportPanelSketchPanel.h"
 #import "StoreExportPanelSketchPanelDataSource.h"
+@import JavaScriptCore;
+#import <Mocha/Mocha.h>
+#import <Mocha/MOClosure.h>
+#import <Mocha/MOJavaScriptObject.h>
+#import <Mocha/MochaRuntime_Private.h>
 
 
 @interface StoreExportPanelSketchPanelController ()
@@ -25,7 +30,10 @@
 
 @property (nonatomic, strong) NSMutableArray<NSURL *> *languages;
 
+@property (nonatomic, strong) MOJavaScriptObject *jsObject;
+        
 @end
+
 
 @import JavaScriptCore;
 @implementation StoreExportPanelSketchPanelController
@@ -49,12 +57,26 @@
 
 
 - (void) selectProjectFolder:(id)sender {
-        JSContext *context = [[JSContext alloc] init]; //call testJs in script.cocoscript
-        [context evaluateScript:@"var num = 5 + 5"];
-        [context evaluateScript:@"var names = ['Grace', 'Ada', 'Margaret']"];
-        [context evaluateScript:@"var triple = function(value) { return value * 3 }"];
-        JSValue *tripleNum = [context evaluateScript:@"triple(num)"];
-        NSLog(@"Tripled: %d", [tripleNum toInt32]);
+        NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"LocalizerScript" ofType:@"cocoascript"];
+        NSString *jsScript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//        JSContext *context = [[JSContext alloc] init];
+        [[Mocha sharedRuntime] evalString: jsScript];
+        //Set function name to invoke
+//        JSValue *function = context[@"testJsLocalizer"];
+        
+        //Call fuction with parameter
+//        [function callWithArguments:@[]];
+        
+        
+        
+//        self.jsObject = nil = [MOJavaScriptObject objectWithJSObject:<#(JSObjectRef)#> context:<#(JSContextRef)#>];
+//        NSArray *args = @[@1, @3];
+//        JSContext *ctx = [JSContext contextWithJSGlobalContextRef:(JSGlobalContextRef)jsObject.JSContext];
+//        JSObjectRef fn = [jsObject JSObject];
+//        JSValue *value = [JSValue valueWithJSValueRef:fn inContext:ctx];
+//        JSValue *result = [value callWithArguments:args];   // result = 4
+        
+        
         
         // create an open documet panel
 //        NSOpenPanel *panel = [NSOpenPanel openPanel];
