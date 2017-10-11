@@ -11,7 +11,7 @@ var onSelectionChanged = function(context) {
 }
 
 var testJs = function() {
-    log("yes?..");
+    log("yes?.. an elaborate test to see if calling Javaascript from Objective-c works");
 }
 
 // find pages and layers
@@ -70,9 +70,6 @@ var findFirstLayerMatchingPredicate_inContainer_filterByType = function(predicat
 }
 
 
-
-
-
 var localiseIOS = function (context) {
     var doc = context.document
     
@@ -110,7 +107,11 @@ var localiseIOS = function (context) {
     }
 }
 
+
+
+
+
 var localiseAndroid = function (context) {
-    
+    //future stuff...
 }
 

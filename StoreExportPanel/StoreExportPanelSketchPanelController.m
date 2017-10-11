@@ -27,7 +27,7 @@
 
 @end
 
-
+@import JavaScriptCore;
 @implementation StoreExportPanelSketchPanelController
 
 - (instancetype)initWithDocument:(id <StoreExportPanelMSDocument>)document {
@@ -49,52 +49,60 @@
 
 
 - (void) selectProjectFolder:(id)sender {
-        // create an open documet panel
-        NSOpenPanel *panel = [NSOpenPanel openPanel];
-        [panel setCanChooseFiles:NO];
-        [panel setCanChooseDirectories:YES];
-        [panel setCanCreateDirectories:NO];
-        [panel setTitle:@"Select a folder with Localizations"];
+        JSContext *context = [[JSContext alloc] init]; //call testJs in script.cocoscript
+        [context evaluateScript:@"var num = 5 + 5"];
+        [context evaluateScript:@"var names = ['Grace', 'Ada', 'Margaret']"];
+        [context evaluateScript:@"var triple = function(value) { return value * 3 }"];
+        JSValue *tripleNum = [context evaluateScript:@"triple(num)"];
+        NSLog(@"Tripled: %d", [tripleNum toInt32]);
         
-        // display the panel
-        [panel beginWithCompletionHandler:^(NSInteger result) {
-                if (result == NSModalResponseOK) {
-                        
-                        // grab a reference to what has been selected
-                        NSURL *documentURL = [[panel URLs]objectAtIndex:0];
-                        NSFileManager *fileManager = [NSFileManager defaultManager];
-                        NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
-                        _languages = [NSMutableArray array];
-                        
-                        NSDirectoryEnumerator *enumerator = [fileManager
-                                                             enumeratorAtURL:documentURL
-                                                             includingPropertiesForKeys:keys
-                                                             options:0
-                                                             errorHandler:^(NSURL *url, NSError *error) {
-                                                                     // Handle the error.
-                                                                     // Return YES if the enumeration should continue after the error.
-                                                                     return YES;
-                                                             }];
-                        
-                        for (NSURL *url in enumerator) {
-                                NSError *error;
-                                NSNumber *isDirectory = nil;
-                                if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
-                                        // handle error
-                                }
-                                else if ([isDirectory boolValue] && ![[url lastPathComponent] isEqualToString:@"Base.lproj"]) {
-                                        // No error and it’s not a directory; do something with the file
-                                        [_languages addObject:url];
-                                        
-                                        //for reading in the languages:
-                                        //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
-                                        // func NSLocalizedString(_ key: String, tableName: String? = default, bundle: Bundle = default, value: String = default, comment: String) -> String The two important new parameters are `tableName` and `bundle`. By default when using NSLocalizedString the system uses the App main bundle and the Localizable table, *table* meaning the name of the strings file. So to hook into the localization system we just need to convert the object structure that we have in memory to the proper file hierarchy that is expected on disk.
-                                        
-                                }
-                        }
-                        [self.panel reloadData];
-                }
-        }];
+        // create an open documet panel
+//        NSOpenPanel *panel = [NSOpenPanel openPanel];
+//        [panel setCanChooseFiles:NO];
+//        [panel setCanChooseDirectories:YES];
+//        [panel setCanCreateDirectories:NO];
+//        [panel setTitle:@"Select a folder with Localizations"];
+//
+//        // display the panel
+//        [panel beginWithCompletionHandler:^(NSInteger result) {
+//                if (result == NSModalResponseOK) {
+//
+//                        // grab a reference to what has been selected
+//                        NSURL *documentURL = [[panel URLs]objectAtIndex:0];
+//                        NSFileManager *fileManager = [NSFileManager defaultManager];
+//                        NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
+//                        _languages = [NSMutableArray array];
+//
+//                        NSDirectoryEnumerator *enumerator = [fileManager
+//                                                             enumeratorAtURL:documentURL
+//                                                             includingPropertiesForKeys:keys
+//                                                             options:0
+//                                                             errorHandler:^(NSURL *url, NSError *error) {
+//                                                                     // Handle the error.
+//                                                                     // Return YES if the enumeration should continue after the error.
+//                                                                     return YES;
+//                                                             }];
+//
+//                        for (NSURL *url in enumerator) {
+//                                NSError *error;
+//                                NSNumber *isDirectory = nil;
+//                                if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
+//                                        // handle error
+//                                }
+//                                else if ([isDirectory boolValue] && ![[url lastPathComponent] isEqualToString:@"Base.lproj"]) {
+//                                        // No error and it’s not a directory; do something with the file
+//                                        [_languages addObject:url];
+//
+//
+//                                        //for reading in the languages:
+//                                        //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
+//                                        // func NSLocalizedString(_ key: String, tableName: String? = default, bundle: Bundle = default, value: String = default, comment: String) -> String The two important new parameters are `tableName` and `bundle`. By default when using NSLocalizedString the system uses the App main bundle and the Localizable table, *table* meaning the name of the strings file. So to hook into the localization system we just need to convert the object structure that we have in memory to the proper file hierarchy that is expected on disk.
+//
+//                                }
+//                        }
+//                        [self.panel reloadData];
+//                }
+//        }];
 }
 
 - (void) clearProjectFolder:(id)sender {
