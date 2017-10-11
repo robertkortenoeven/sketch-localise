@@ -1,3 +1,5 @@
+var platform = "iOS"
+
 var onStartup = function(context) {
     log("Started up app store export plugin");
 }
@@ -69,7 +71,16 @@ var findFirstLayerMatchingPredicate_inContainer_filterByType = function(predicat
     return filteredArray.firstObject()
 }
 
-
+function localiseStringForKey(stringKey) {
+    switch (platform) {
+        case "iOS":
+            return ""//return localizedStringForKey
+        case "Android":
+            return ""//return
+        default:
+            return ""
+    }
+}
 
 function localiseTextLayersForPage(page) {
     // ------------------------------------
@@ -99,7 +110,7 @@ function localiseTextLayersForPage(page) {
     var loopLayers= context.selection.objectEnumerator(), textLayer;
     while (textLayer = loopLayers.nextObject()) {
         textLayer.setNameIsFixed(0)
-        //textLayer.setString //LOCALISE HERE
+        //textLayer.setString(localiseStringForKey(textLayer.name))
     }
 }
 
@@ -116,6 +127,7 @@ function duplicatePage (doc, page, name) {
 
 
 var localiseIOS = function (context) {
+    platform = "iOS"
     var doc = context.document
 
     //for count in languages...
@@ -130,6 +142,7 @@ var localiseIOS = function (context) {
 
 
 var localiseAndroid = function (context) {
+    platform = "Android"
     //future stuff...
 }
 
