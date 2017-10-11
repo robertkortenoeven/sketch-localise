@@ -17,18 +17,19 @@
 
 
 @interface StoreExportPanelSketchPanelController ()
-        
-        @property (nonatomic, strong) id <StoreExportPanelMSInspectorStackView> stackView; // MSInspectorStackView
-        @property (nonatomic, strong) id <StoreExportPanelMSDocument> document;
-        @property (nonatomic, strong) StoreExportPanelSketchPanel *panel;
-        @property (nonatomic, copy) NSArray *selection;
-        
-        @property (nonatomic, strong) NSMutableArray<NSURL *> *languages;
-        
-        @end
+
+@property (nonatomic, strong) id <StoreExportPanelMSInspectorStackView> stackView; // MSInspectorStackView
+@property (nonatomic, strong) id <StoreExportPanelMSDocument> document;
+@property (nonatomic, strong) StoreExportPanelSketchPanel *panel;
+@property (nonatomic, copy) NSArray *selection;
+
+@property (nonatomic, strong) NSMutableArray<NSURL *> *languages;
+
+@end
+
 
 @implementation StoreExportPanelSketchPanelController
-        
+
 - (instancetype)initWithDocument:(id <StoreExportPanelMSDocument>)document {
         if (self = [super init]) {
                 _document = document;
@@ -37,20 +38,23 @@
         }
         return self;
 }
-        
+
 - (void)selectionDidChange:(NSArray *)selection {
         self.selection = [selection valueForKey:@"layers"];         // To get NSArray from MSLayersArray
         
         self.panel.stackView = [(NSObject *)_document valueForKeyPath:@"inspectorController.currentController.stackView"];
+        
         [self.panel reloadData];
 }
-        
+
+
 - (void) selectProjectFolder:(id)sender {
         // create an open documet panel
         NSOpenPanel *panel = [NSOpenPanel openPanel];
         [panel setCanChooseFiles:NO];
         [panel setCanChooseDirectories:YES];
         [panel setCanCreateDirectories:NO];
+        [panel setTitle:@"Select a folder with Localizations"];
         
         // display the panel
         [panel beginWithCompletionHandler:^(NSInteger result) {
@@ -92,32 +96,32 @@
                 }
         }];
 }
-        
+
 - (void) clearProjectFolder:(id)sender {
         _languages = nil;
         [self.panel reloadData];
 }
-        
+
 - (void) startLocalisation:(id)sender {
         NSLog(@"Start localisation");
 }
-        
+
 #pragma mark - StoreExportPanelSketchPanelDataSource
-        
+
 - (StoreExportPanelSketchPanelCell *)headerForStoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel {
         StoreExportPanelSketchPanelCellHeader *cell = (StoreExportPanelSketchPanelCellHeader *)[panel dequeueReusableCellForReuseIdentifier:@"header"];
         if ( ! cell) {
                 cell = [StoreExportPanelSketchPanelCellHeader loadNibNamed:@"StoreExportPanelSketchPanelCellHeader"];
                 cell.reuseIdentifier = @"header";
         }
-        cell.titleLabel.stringValue = @"Localise";
+        cell.titleLabel.stringValue = @"Localize Screens";
         return cell;
 }
-        
+
 - (NSUInteger)numberOfRowsForStoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel {
         return 3;    // Using self.selection as number of rows in the panel
 }
-        
+
 - (StoreExportPanelSketchPanelCell *)StoreExportPanelSketchPanel:(StoreExportPanelSketchPanel *)panel itemForRowAtIndex:(NSUInteger)index {
         
         if (index == 0) {
@@ -160,8 +164,8 @@
         
         return nil;
 }
-        
-        
-        
-        
-        @end
+
+
+
+
+@end

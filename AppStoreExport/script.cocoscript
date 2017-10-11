@@ -10,6 +10,10 @@ var onSelectionChanged = function(context) {
     log("selection changed");
 }
 
+var testJs = function() {
+    log("yes?..");
+}
+
 // find pages and layers
 var findPagesNamed = function(pageName) {
     var predicate = NSPredicate.predicateWithFormat("name == %@", pageName)
@@ -109,5 +113,4 @@ var localiseIOS = function (context) {
 var localiseAndroid = function (context) {
     
 }
-
 
