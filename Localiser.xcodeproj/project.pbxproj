@@ -37,6 +37,7 @@
 		E166A5DC1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.m in Sources */ = {isa = PBXBuildFile; fileRef = E166A5DA1F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.m */; };
 		E166A5DD1F8CA410000D74B7 /* StoreExportPanelSketchPanelCellStart.h in Headers */ = {isa = PBXBuildFile; fileRef = E166A5D91F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.h */; };
 		E166A5DE1F8CA410000D74B7 /* StoreExportPanelSketchPanelCellStart.xib in Resources */ = {isa = PBXBuildFile; fileRef = E166A5DB1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.xib */; };
+		E1E9D7A91F8E7C69009830B7 /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E9D7A71F8E7C69009830B7 /* NSBundle+Language.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		E166A5DA1F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreExportPanelSketchPanelCellStart.m; sourceTree = "<group>"; };
 		E166A5DB1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreExportPanelSketchPanelCellStart.xib; sourceTree = "<group>"; };
 		E1A4EC571F8BB12F00A84249 /* Localiser.sketchplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Localiser.sketchplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1E9D7A71F8E7C69009830B7 /* NSBundle+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
+		E1E9D7AA1F8E7E1A009830B7 /* NSBundle+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,7 @@
 				E11995761F8BC99E00737083 /* Protocols */,
 				E119957B1F8BC99F00737083 /* Library */,
 				E11995841F8BC99F00737083 /* User Subclasses */,
+				E1E9D7AB1F8E7E3C009830B7 /* Extensions */,
 			);
 			path = StoreExportPanel;
 			sourceTree = "<group>";
@@ -203,6 +207,15 @@
 				E119956E1F8BC99E00737083 /* StoreExportPanel.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E1E9D7AB1F8E7E3C009830B7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E1E9D7AA1F8E7E1A009830B7 /* NSBundle+Language.h */,
+				E1E9D7A71F8E7C69009830B7 /* NSBundle+Language.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +387,7 @@
 				E119957F1F8BC99F00737083 /* StoreExportPanelSketchPanel.m in Sources */,
 				E166A5D61F8C3C76000D74B7 /* StoreExportPanelSketchPanelCellSelectFolder.m in Sources */,
 				E119958E1F8BC99F00737083 /* StoreExportPanelSketchPanelCellHeader.m in Sources */,
+				E1E9D7A91F8E7C69009830B7 /* NSBundle+Language.m in Sources */,
 				E11995831F8BC99F00737083 /* StoreExportPanelSketchPanelCell.m in Sources */,
 				E11995941F8BC99F00737083 /* StoreExportPanelSketchPanelController.m in Sources */,
 			);

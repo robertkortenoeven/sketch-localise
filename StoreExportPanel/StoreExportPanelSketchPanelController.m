@@ -15,6 +15,8 @@
 #import "StoreExportPanelSketchPanel.h"
 #import "StoreExportPanelSketchPanelDataSource.h"
 
+#import "NSBundle+Language.h"
+
 
 @interface StoreExportPanelSketchPanelController ()
 
@@ -77,7 +79,7 @@
                                                                      return YES;
                                                              }];
 
-                        for (NSURL *url in enumerator) {
+                        for (NSURL *url in enumerator) {  //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
                                 NSError *error;
                                 NSNumber *isDirectory = nil;
                                 if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
@@ -89,12 +91,8 @@
                                         NSString *language = [[url lastPathComponent] stringByDeletingPathExtension];
                                         NSLog(@"language: %@", language);
                                         
-                                        [[NSUserDefaults standardUserDefaults] setObject: [NSArray arrayWithObjects:language, nil] forKey:@"AppleLanguages"];
-                                        [[NSUserDefaults standardUserDefaults] synchronize];
-                                        
-                                        //for reading in the languages:
-                                        //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
-                                        // func NSLocalizedString(_ key: String, tableName: String? = default, bundle: Bundle = default, value: String = default, comment: String) -> String The two important new parameters are `tableName` and `bundle`. By default when using NSLocalizedString the system uses the App main bundle and the Localizable table, *table* meaning the name of the strings file. So to hook into the localization system we just need to convert the object structure that we have in memory to the proper file hierarchy that is expected on disk.
+                                        [NSBundle setLanguage:language];
+                                        NSLog(@"string for key: %@", NSLocalizedString(@"", @"")); //test
 
                                 }
                         }
