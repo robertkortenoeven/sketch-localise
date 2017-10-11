@@ -107,7 +107,6 @@ var localiseIOS = function (context) {
     }
     
     duplicatePageWithName(doc, "German")
-    
 }
 
 function duplicatePageWithName (doc, name) {
@@ -118,7 +117,8 @@ function duplicatePageWithName (doc, name) {
     
     [[doc documentData] addPage:newPage]
     [doc setCurrentPage:newPage]
-    
+    [doc setCurrentPage:page]
+
     log("done duplicating")
 }
 
