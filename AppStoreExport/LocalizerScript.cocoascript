@@ -70,11 +70,8 @@ var findFirstLayerMatchingPredicate_inContainer_filterByType = function(predicat
 }
 
 
-var localiseIOS = function (context) {
-    var doc = context.document
-    
-    
-    
+
+function localiseTextLayersForPage(page) {
     // ------------------------------------
     //var predicate = NSPredicate.predicateWithFormat("name != %@", "")
     //var layers = findFirstLayerMatchingPredicate_inContainer_filterByType(predicate, doc.currentPage(), MSTextLayer)
@@ -84,7 +81,7 @@ var localiseIOS = function (context) {
     var selectLayersOfType_inContainer = function(layerType, containerLayer) {
         
         // Filter layers using NSPredicate
-        var scope = (typeof containerLayer !== 'undefined') ? [containerLayer children] : [[doc currentPage] children],
+        var scope = (typeof containerLayer !== 'undefined') ? [containerLayer children] : [page children],
         predicate = NSPredicate.predicateWithFormat("(className == %@)", layerType),
         layers = [scope filteredArrayUsingPredicate:predicate];
         
@@ -102,25 +99,33 @@ var localiseIOS = function (context) {
     var loopLayers= context.selection.objectEnumerator(), textLayer;
     while (textLayer = loopLayers.nextObject()) {
         textLayer.setNameIsFixed(0)
-        //textLayer.setString
-        log(textLayer)
+        //textLayer.setString //LOCALISE HERE
     }
-    
-    duplicatePageWithName(doc, "German")
 }
 
-function duplicatePageWithName (doc, name) {
+function duplicatePage (doc, page, name) {
     // duplicate pages
-    page = [doc currentPage],
     newPage = [page copy]
     newPage.setName(name)
     
     [[doc documentData] addPage:newPage]
     [doc setCurrentPage:newPage]
-    [doc setCurrentPage:page]
-
-    log("done duplicating")
+    var view = doc.currentView()
+    [view setZoomValueCenteredInCanvas:0.25]
 }
+
+
+var localiseIOS = function (context) {
+    var doc = context.document
+
+    //for count in languages...
+    page = [doc currentPage]
+    duplicatePage(doc, page, "German")
+    localiseTextLayersForPage([doc currentPage])//select text layers and localize
+    //[doc setCurrentPage:page] //back to base/english page
+}
+
+
 
 
 
