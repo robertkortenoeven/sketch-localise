@@ -105,9 +105,22 @@ var localiseIOS = function (context) {
         //textLayer.setString
         log(textLayer)
     }
+    
+    duplicatePageWithName(doc, "German")
+    
 }
 
-
+function duplicatePageWithName (doc, name) {
+    // duplicate pages
+    page = [doc currentPage],
+    newPage = [page copy]
+    newPage.setName(name)
+    
+    [[doc documentData] addPage:newPage]
+    [doc setCurrentPage:newPage]
+    
+    log("done duplicating")
+}
 
 
 
