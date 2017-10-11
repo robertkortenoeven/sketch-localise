@@ -11,7 +11,6 @@ var onSelectionChanged = function(context) {
 }
 
 var testJsLocalizer = function() {
-    doc.displayMessage("I'm Mr Meeseeks LOOK AT ME! :)")
     log("Localizer: elaborate test to see if calling Javascript from Objective-c works");
 }
 
