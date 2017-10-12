@@ -14,8 +14,11 @@
 #import "StoreExportPanelSketchPanelCellStart.h"
 #import "StoreExportPanelSketchPanel.h"
 #import "StoreExportPanelSketchPanelDataSource.h"
-
-#import "NSBundle+Language.h"
+@import JavaScriptCore;
+#import <Mocha/Mocha.h>
+#import <Mocha/MOClosure.h>
+#import <Mocha/MOJavaScriptObject.h>
+#import <Mocha/MochaRuntime_Private.h>
 
 
 @interface StoreExportPanelSketchPanelController ()
@@ -52,53 +55,65 @@
 
 
 - (void) selectProjectFolder:(id)sender {
+//        NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"LocalizerScript" ofType:@"cocoascript"];
+//        NSString *jsScript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//                JSContext *context = _document.
+//        [[Mocha sharedRuntime] evalString: jsScript];
+        //Set function name to invoke
+        //        JSValue *function = context[@"testJsLocalizer"];
+        
+        //Call fuction with parameter
+        //        [function callWithArguments:@[]];
+        
+        
+        
         // create an open document panel
-        NSOpenPanel *panel = [NSOpenPanel openPanel];
-        [panel setCanChooseFiles:NO];
-        [panel setCanChooseDirectories:YES];
-        [panel setCanCreateDirectories:NO];
-        [panel setTitle:@"Select a folder with Localizations"];
-
-        // display the panel
-        [panel beginWithCompletionHandler:^(NSInteger result) {
-                if (result == NSModalResponseOK) {
-
-                        // grab a reference to what has been selected
-                        NSURL *documentURL = [[panel URLs]objectAtIndex:0];
-                        NSFileManager *fileManager = [NSFileManager defaultManager];
-                        NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
-                        _languages = [NSMutableArray array];
-
-                        NSDirectoryEnumerator *enumerator = [fileManager
-                                                             enumeratorAtURL:documentURL
-                                                             includingPropertiesForKeys:keys
-                                                             options:0
-                                                             errorHandler:^(NSURL *url, NSError *error) {
-                                                                     // Handle the error.
-                                                                     // Return YES if the enumeration should continue after the error.
-                                                                     return YES;
-                                                             }];
-
-                        for (NSURL *url in enumerator) {  //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
-                                NSError *error;
-                                NSNumber *isDirectory = nil;
-                                if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
-                                        // handle error
-                                }
-                                else if ([isDirectory boolValue] && ![[url lastPathComponent] isEqualToString:@"Base.lproj"]) {
-                                        // No error and it’s not a directory; do something with the file
-                                        [_languages addObject:url];
-                                        NSString *language = [[url lastPathComponent] stringByDeletingPathExtension];
-                                        NSLog(@"language: %@", language);
-                                        
-                                        [NSBundle setLanguage:language];
-                                        NSLog(@"string for key: %@", NSLocalizedString(@"", @"")); //test
-
-                                }
-                        }
-                        [self.panel reloadData];
-                }
-        }];
+//        NSOpenPanel *panel = [NSOpenPanel openPanel];
+//        [panel setCanChooseFiles:NO];
+//        [panel setCanChooseDirectories:YES];
+//        [panel setCanCreateDirectories:NO];
+//        [panel setTitle:@"Select a folder with Localizations"];
+//
+//        // display the panel
+//        [panel beginWithCompletionHandler:^(NSInteger result) {
+//                if (result == NSModalResponseOK) {
+//
+//                        // grab a reference to what has been selected
+//                        NSURL *documentURL = [[panel URLs]objectAtIndex:0];
+//                        NSFileManager *fileManager = [NSFileManager defaultManager];
+//                        NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
+//                        _languages = [NSMutableArray array];
+//
+//                        NSDirectoryEnumerator *enumerator = [fileManager
+//                                                             enumeratorAtURL:documentURL
+//                                                             includingPropertiesForKeys:keys
+//                                                             options:0
+//                                                             errorHandler:^(NSURL *url, NSError *error) {
+//                                                                     // Handle the error.
+//                                                                     // Return YES if the enumeration should continue after the error.
+//                                                                     return YES;
+//                                                             }];
+//
+//                        for (NSURL *url in enumerator) {  //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
+//                                NSError *error;
+//                                NSNumber *isDirectory = nil;
+//                                if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
+//                                        // handle error
+//                                }
+//                                else if ([isDirectory boolValue] && ![[url lastPathComponent] isEqualToString:@"Base.lproj"]) {
+//                                        // No error and it’s not a directory; do something with the file
+//                                        [_languages addObject:url];
+//                                        NSString *language = [[url lastPathComponent] stringByDeletingPathExtension];
+//                                        NSLog(@"language: %@", language);
+//                                        
+//                                        [NSBundle setLanguage:language];
+//                                        NSLog(@"string for key: %@", NSLocalizedString(@"", @"")); //test
+//
+//                                }
+//                        }
+//                        [self.panel reloadData];
+//                }
+//        }];
 }
 
 - (void) clearProjectFolder:(id)sender {

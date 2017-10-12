@@ -97,7 +97,7 @@
 		E166A5D91F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreExportPanelSketchPanelCellStart.h; sourceTree = "<group>"; };
 		E166A5DA1F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreExportPanelSketchPanelCellStart.m; sourceTree = "<group>"; };
 		E166A5DB1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreExportPanelSketchPanelCellStart.xib; sourceTree = "<group>"; };
-		E1A4EC571F8BB12F00A84249 /* Localiser.sketchplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Localiser.sketchplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A4EC571F8BB12F00A84249 /* Localizer.sketchplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Localizer.sketchplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E9D7A71F8E7C69009830B7 /* NSBundle+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
 		E1E9D7AA1F8E7E1A009830B7 /* NSBundle+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,7 +203,7 @@
 		E1A4EC581F8BB12F00A84249 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1A4EC571F8BB12F00A84249 /* Localiser.sketchplugin */,
+				E1A4EC571F8BB12F00A84249 /* Localizer.sketchplugin */,
 				E119956E1F8BC99E00737083 /* StoreExportPanel.framework */,
 			);
 			name = Products;
@@ -260,9 +260,9 @@
 			productReference = E119956E1F8BC99E00737083 /* StoreExportPanel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E1A4EC561F8BB12F00A84249 /* Localiser */ = {
+		E1A4EC561F8BB12F00A84249 /* Localizer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1A4EC611F8BB12F00A84249 /* Build configuration list for PBXNativeTarget "Localiser" */;
+			buildConfigurationList = E1A4EC611F8BB12F00A84249 /* Build configuration list for PBXNativeTarget "Localizer" */;
 			buildPhases = (
 				E1A4EC511F8BB12F00A84249 /* Sources */,
 				E1A4EC521F8BB12F00A84249 /* Frameworks */,
@@ -275,9 +275,9 @@
 			dependencies = (
 				E11995A21F8BCAB800737083 /* PBXTargetDependency */,
 			);
-			name = Localiser;
+			name = Localizer;
 			productName = "App Store Export";
-			productReference = E1A4EC571F8BB12F00A84249 /* Localiser.sketchplugin */;
+			productReference = E1A4EC571F8BB12F00A84249 /* Localizer.sketchplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -299,7 +299,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E1A4EC501F8BB12F00A84249 /* Build configuration list for PBXProject "Localiser" */;
+			buildConfigurationList = E1A4EC501F8BB12F00A84249 /* Build configuration list for PBXProject "Localizer" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -311,7 +311,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1A4EC561F8BB12F00A84249 /* Localiser */,
+				E1A4EC561F8BB12F00A84249 /* Localizer */,
 				E119956D1F8BC99E00737083 /* StoreExportPanel */,
 			);
 		};
@@ -623,7 +623,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1A4EC501F8BB12F00A84249 /* Build configuration list for PBXProject "Localiser" */ = {
+		E1A4EC501F8BB12F00A84249 /* Build configuration list for PBXProject "Localizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1A4EC5F1F8BB12F00A84249 /* Debug */,
@@ -632,7 +632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1A4EC611F8BB12F00A84249 /* Build configuration list for PBXNativeTarget "Localiser" */ = {
+		E1A4EC611F8BB12F00A84249 /* Build configuration list for PBXNativeTarget "Localizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1A4EC621F8BB12F00A84249 /* Debug */,
