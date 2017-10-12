@@ -16,6 +16,7 @@
 #import "StoreExportPanelSketchPanelDataSource.h"
 
 #import "NSBundle+Language.h"
+#import "SketchRuntime.h"
 
 
 @interface StoreExportPanelSketchPanelController ()
@@ -38,6 +39,12 @@
                 _document = document;
                 _panel = [[StoreExportPanelSketchPanel alloc] initWithStackView:nil];
                 _panel.datasource = self;
+                
+                [[NSNotificationCenter defaultCenter]
+                 addObserver:self
+                 selector:@selector(windowBecameKeyOrMain:)
+                 name:NSWindowDidBecomeMainNotification
+                 object:nil];
         }
         return self;
 }
@@ -108,6 +115,18 @@
 
 - (void) startLocalisation:(id)sender {
         NSLog(@"Start localisation");
+}
+
+- (void) windowBecameKeyOrMain:(NSNotification*)notification {
+        if(![notification.object isKindOfClass:[MSDocumentWindow_Class class]]) return;
+        
+        MSDocumentWindow *window = (MSDocumentWindow*)notification.object;
+        MSDocument *document = window.windowController.document;
+        
+//        NSDictionary *userInfo = @{
+//                                   MCSPluginNotificationDocumentKey: document,
+//                                   MCSPluginNotificationDocumentWindowKey: window
+//                                   };
 }
 
 #pragma mark - StoreExportPanelSketchPanelDataSource

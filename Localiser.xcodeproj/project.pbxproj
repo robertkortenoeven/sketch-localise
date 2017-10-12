@@ -100,6 +100,7 @@
 		E1A4EC571F8BB12F00A84249 /* Localiser.sketchplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Localiser.sketchplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E9D7A71F8E7C69009830B7 /* NSBundle+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
 		E1E9D7AA1F8E7E1A009830B7 /* NSBundle+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
+		E1F7E9A51F8FAF3C005C24D4 /* SketchRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SketchRuntime.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +135,7 @@
 				E11995761F8BC99E00737083 /* Protocols */,
 				E119957B1F8BC99F00737083 /* Library */,
 				E11995841F8BC99F00737083 /* User Subclasses */,
+				E1F7E99E1F8FAF3C005C24D4 /* MCSketchPluginFramework */,
 				E1E9D7AB1F8E7E3C009830B7 /* Extensions */,
 			);
 			path = StoreExportPanel;
@@ -216,6 +218,14 @@
 				E1E9D7A71F8E7C69009830B7 /* NSBundle+Language.m */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		E1F7E99E1F8FAF3C005C24D4 /* MCSketchPluginFramework */ = {
+			isa = PBXGroup;
+			children = (
+				E1F7E9A51F8FAF3C005C24D4 /* SketchRuntime.h */,
+			);
+			path = MCSketchPluginFramework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
