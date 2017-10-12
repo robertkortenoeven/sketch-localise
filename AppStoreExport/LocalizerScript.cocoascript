@@ -132,8 +132,8 @@ var localiseIOS = function (context) {
 
     //for count in languages...
     page = [doc currentPage]
-    duplicatePage(doc, page, "German")
-    localiseTextLayersForPage([doc currentPage])//select text layers and localize
+    //duplicatePage(doc, page, "German")
+    //localiseTextLayersForPage([doc currentPage])//select text layers and localize
     //[doc setCurrentPage:page] //back to base/english page
 }
 

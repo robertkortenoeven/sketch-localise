@@ -14,9 +14,15 @@
 #import "StoreExportPanelSketchPanelCellStart.h"
 #import "StoreExportPanelSketchPanel.h"
 #import "StoreExportPanelSketchPanelDataSource.h"
+@import JavaScriptCore;
+#import <Mocha/Mocha.h>
+#import <Mocha/MOClosure.h>
+#import <Mocha/MOJavaScriptObject.h>
+#import <Mocha/MochaRuntime_Private.h>
 
 #import "NSBundle+Language.h"
 #import "SketchRuntime.h"
+
 
 
 @interface StoreExportPanelSketchPanelController ()
@@ -59,6 +65,18 @@
 
 
 - (void) selectProjectFolder:(id)sender {
+//        NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"LocalizerScript" ofType:@"cocoascript"];
+//        NSString *jsScript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//                JSContext *context = _document.
+//        [[Mocha sharedRuntime] evalString: jsScript];
+        //Set function name to invoke
+        //        JSValue *function = context[@"testJsLocalizer"];
+        
+        //Call fuction with parameter
+        //        [function callWithArguments:@[]];
+        
+        
+        
         // create an open document panel
         NSOpenPanel *panel = [NSOpenPanel openPanel];
         [panel setCanChooseFiles:NO];
@@ -118,10 +136,10 @@
 }
 
 - (void) windowBecameKeyOrMain:(NSNotification*)notification {
-        if(![notification.object isKindOfClass:[MSDocumentWindow_Class class]]) return;
-        
-        MSDocumentWindow *window = (MSDocumentWindow*)notification.object;
-        MSDocument *document = window.windowController.document;
+//        if(![notification.object isKindOfClass:[MSDocumentWindow_Class class]]) return;
+//        
+//        MSDocumentWindow *window = (MSDocumentWindow*)notification.object;
+//        MSDocument *document = window.windowController.document;
         
 //        NSDictionary *userInfo = @{
 //                                   MCSPluginNotificationDocumentKey: document,

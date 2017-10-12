@@ -1,5 +1,5 @@
 {
-  "name": "Localise",
+  "name": "Localizer",
   "description" : "Localises Sketch files using Mac and iOS localisable.strings files",
   "author": "Robert Kortenoeven",
   "authorEmail" : "robert@welivelikethis.net",
