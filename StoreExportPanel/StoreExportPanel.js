@@ -23,6 +23,3 @@ var onSelectionChanged = function(context) {
   StoreExportPanel.onSelectionChanged(context);
 };
 
-var testJsExportPanel = function() {
-    log("ExportPanel: an elaborate test to see if calling Javascript from Objective-c works");
-}

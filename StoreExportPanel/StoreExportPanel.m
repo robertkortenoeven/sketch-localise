@@ -22,6 +22,7 @@
 @property (nonatomic, strong) StoreExportPanelSketchPanelController *panelController;
 @property (nonatomic, strong) id <StoreExportPanelMSDocument> document;
 @property (nonatomic, copy) NSString *panelControllerClassName;
+@property (nonatomic, strong) NSDictionary *pluginContext;
 
 + (instancetype)onSelectionChanged:(id)context;
 - (void)onSelectionChange:(NSArray *)selection;
@@ -46,7 +47,6 @@ static id _command;
 + (instancetype)onSelectionChanged:(id)context {
 
 //    COScript *coscript = [COScript currentCOScript];
-
     id <StoreExportPanelMSDocument> document = [context valueForKeyPath:@"actionContext.document"];
     if ( ! [document isKindOfClass:NSClassFromString(@"MSDocument")]) {
         document = nil;  // be safe
@@ -65,6 +65,7 @@ static id _command;
         instance = [[self alloc] initWithDocument:document];
         [[Mocha sharedRuntime] setValue:instance forKey:key];
     }
+    instance.pluginContext = context;
 
     NSArray *selection = [context valueForKeyPath:@"actionContext.document.selectedLayers"];
 //    NSLog(@"selection %p %@ %@", instance, key, selection);
@@ -81,6 +82,7 @@ static id _command;
 }
 
 - (void)onSelectionChange:(NSArray *)selection {
+    _panelController.pluginContext = _pluginContext;
     [_panelController selectionDidChange:selection];
 }
 

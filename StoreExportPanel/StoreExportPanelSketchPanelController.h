@@ -17,6 +17,7 @@
 @property (nonatomic, strong, readonly) id <StoreExportPanelMSInspectorStackView> stackView; // MSInspectorStackView
 @property (nonatomic, strong, readonly) id <StoreExportPanelMSDocument> document;
 @property (nonatomic, strong, readonly) StoreExportPanelSketchPanel *panel;
+@property (nonatomic, strong) NSDictionary *pluginContext;
 
 - (instancetype)initWithDocument:(id <StoreExportPanelMSDocument>)document;
 - (void)selectionDidChange:(NSArray *)selection;

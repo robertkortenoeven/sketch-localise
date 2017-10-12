@@ -38,7 +38,6 @@
 		E166A5DD1F8CA410000D74B7 /* StoreExportPanelSketchPanelCellStart.h in Headers */ = {isa = PBXBuildFile; fileRef = E166A5D91F8CA386000D74B7 /* StoreExportPanelSketchPanelCellStart.h */; };
 		E166A5DE1F8CA410000D74B7 /* StoreExportPanelSketchPanelCellStart.xib in Resources */ = {isa = PBXBuildFile; fileRef = E166A5DB1F8CA387000D74B7 /* StoreExportPanelSketchPanelCellStart.xib */; };
 		E1EDC9701F8F50A500CFF6EA /* NSBundle+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EDC96E1F8F509700CFF6EA /* NSBundle+Language.m */; };
-		E1F7E9AF1F8FD420005C24D4 /* SketchRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = E1F7E9AE1F8FD419005C24D4 /* SketchRuntime.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +100,6 @@
 		E1A4EC571F8BB12F00A84249 /* Localizer.sketchplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Localizer.sketchplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1EDC96E1F8F509700CFF6EA /* NSBundle+Language.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Language.m"; sourceTree = "<group>"; };
 		E1EDC96F1F8F509700CFF6EA /* NSBundle+Language.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Language.h"; sourceTree = "<group>"; };
-		E1F7E9AE1F8FD419005C24D4 /* SketchRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SketchRuntime.h; path = "../../../../../Downloads/Sketch-Plugin-Framework-master/MCSketchPluginFramework/SketchRuntime.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +135,6 @@
 				E11995761F8BC99E00737083 /* Protocols */,
 				E119957B1F8BC99F00737083 /* Library */,
 				E11995841F8BC99F00737083 /* User Subclasses */,
-				E1F7E99E1F8FAF3C005C24D4 /* MCSketchPluginFramework */,
 			);
 			path = StoreExportPanel;
 			sourceTree = "<group>";
@@ -221,14 +218,6 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		E1F7E99E1F8FAF3C005C24D4 /* MCSketchPluginFramework */ = {
-			isa = PBXGroup;
-			children = (
-				E1F7E9AE1F8FD419005C24D4 /* SketchRuntime.h */,
-			);
-			path = MCSketchPluginFramework;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -238,7 +227,6 @@
 			files = (
 				E11995921F8BC99F00737083 /* StoreExportPanelSketchPanelController.h in Headers */,
 				E11995961F8BC99F00737083 /* StoreExportPanelSketchPanelDataSource.h in Headers */,
-				E1F7E9AF1F8FD420005C24D4 /* SketchRuntime.h in Headers */,
 				E11995811F8BC99F00737083 /* StoreExportPanelSketchPanelCell.h in Headers */,
 				E119958C1F8BC99F00737083 /* StoreExportPanelSketchPanelCellHeader.h in Headers */,
 				E11995781F8BC99F00737083 /* StoreExportPanelMSDocument.h in Headers */,

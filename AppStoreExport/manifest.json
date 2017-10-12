@@ -43,6 +43,14 @@
          "SelectionChanged.finish" : "onSelectionChanged"
        }
      }
-   }
+   },
+    {
+        "script" : "LocalizerScript.cocoascript",
+        "handlers" : {
+            "actions" : {
+                "localiseIOS.start" : "localiseIOS",
+            }
+        }
+    }
  ]
 }
