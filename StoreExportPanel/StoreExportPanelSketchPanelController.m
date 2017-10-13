@@ -22,13 +22,13 @@
 
 #import "NSBundle+Language.h"
 
-
 @interface StoreExportPanelSketchPanelController ()
 
 @property (nonatomic, strong) id <StoreExportPanelMSInspectorStackView> stackView; // MSInspectorStackView
 @property (nonatomic, strong) id <StoreExportPanelMSDocument> document;
 @property (nonatomic, strong) StoreExportPanelSketchPanel *panel;
 @property (nonatomic, copy) NSArray *selection;
+@property (nonatomic, copy) NSArray *selectedTextLayers;
 
 @property (nonatomic, strong) NSMutableArray<NSURL *> *languages;
         
@@ -49,6 +49,7 @@
 }
 
 - (void)selectionDidChange:(NSArray *)selection {
+        
         self.selection = [selection valueForKey:@"layers"];         // To get NSArray from MSLayersArray
         
         self.panel.stackView = [(NSObject *)_document valueForKeyPath:@"inspectorController.currentController.stackView"];
@@ -60,6 +61,11 @@
 //        _pluginContext = pluginContext;
 //}
 
+- (void)updateStringsForLanguage:(NSString *)language {
+
+}
+
+
 - (void) selectProjectFolder:(id)sender {
         NSString *actionID = @"localiseIOS.start";
         NSObject *appController = [NSClassFromString(@"AppController") valueForKeyPath:@"sharedInstance"];
@@ -68,54 +74,54 @@
         
         
         
-//        // create an open document panel
-//        NSOpenPanel *panel = [NSOpenPanel openPanel];
-//        [panel setCanChooseFiles:NO];
-//        [panel setCanChooseDirectories:YES];
-//        [panel setCanCreateDirectories:NO];
-//        [panel setTitle:@"Select a folder with Localizations"];
-//
-//        // display the panel
-//        [panel beginWithCompletionHandler:^(NSInteger result) {
-//                if (result == NSModalResponseOK) {
-//
-//                        // grab a reference to what has been selected
-//                        NSURL *documentURL = [[panel URLs]objectAtIndex:0];
-//                        NSFileManager *fileManager = [NSFileManager defaultManager];
-//                        NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
-//                        _languages = [NSMutableArray array];
-//
-//                        NSDirectoryEnumerator *enumerator = [fileManager
-//                                                             enumeratorAtURL:documentURL
-//                                                             includingPropertiesForKeys:keys
-//                                                             options:0
-//                                                             errorHandler:^(NSURL *url, NSError *error) {
-//                                                                     // Handle the error.
-//                                                                     // Return YES if the enumeration should continue after the error.
-//                                                                     return YES;
-//                                                             }];
-//
-//                        for (NSURL *url in enumerator) {  //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
-//                                NSError *error;
-//                                NSNumber *isDirectory = nil;
-//                                if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
-//                                        // handle error
-//                                }
-//                                else if ([isDirectory boolValue] && ![[url lastPathComponent] isEqualToString:@"Base.lproj"]) {
-//                                        // No error and it’s not a directory; do something with the file
-//                                        [_languages addObject:url];
-////                                        NSString *language = [[url lastPathComponent] stringByDeletingPathExtension];
-////                                        NSLog(@"language: %@", language);
-////
-////                                        [NSBundle setLanguage:language];
-////                                        NSLog(@"string for key: %@", NSLocalizedString(@"", @"")); //test
-//
-//
-//                                }
-//                        }
-//                        [self.panel reloadData];
-//                }
-//        }];
+        // create an open document panel
+        NSOpenPanel *panel = [NSOpenPanel openPanel];
+        [panel setCanChooseFiles:NO];
+        [panel setCanChooseDirectories:YES];
+        [panel setCanCreateDirectories:NO];
+        [panel setTitle:@"Select a folder with Localizations"];
+
+        // display the panel
+        [panel beginWithCompletionHandler:^(NSInteger result) {
+                if (result == NSModalResponseOK) {
+
+                        // grab a reference to what has been selected
+                        NSURL *documentURL = [[panel URLs]objectAtIndex:0];
+                        NSFileManager *fileManager = [NSFileManager defaultManager];
+                        NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
+                        _languages = [NSMutableArray array];
+
+                        NSDirectoryEnumerator *enumerator = [fileManager
+                                                             enumeratorAtURL:documentURL
+                                                             includingPropertiesForKeys:keys
+                                                             options:0
+                                                             errorHandler:^(NSURL *url, NSError *error) {
+                                                                     // Handle the error.
+                                                                     // Return YES if the enumeration should continue after the error.
+                                                                     return YES;
+                                                             }];
+
+                        for (NSURL *url in enumerator) {  //http://alejandromp.com/blog/2017/6/24/loading-translations-dynamically-generating-localized-string-runtime/
+                                NSError *error;
+                                NSNumber *isDirectory = nil;
+                                if (! [url getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:&error]) {
+                                        // handle error
+                                }
+                                else if ([isDirectory boolValue] && ![[url lastPathComponent] isEqualToString:@"Base.lproj"]) {
+                                        // No error and it’s not a directory; do something with the file
+                                        [_languages addObject:url];
+                                        NSString *language = [[url lastPathComponent] stringByDeletingPathExtension];
+                                        NSLog(@"language: %@", language);
+
+                                        [NSBundle setLanguage:language];
+                                        NSLog(@"string for key: %@", NSLocalizedString(@"kEYEErrorTextLoginFailed", @"")); //test
+                                        [self updateStringsForLanguage:language];
+
+                                }
+                        }
+                        [self.panel reloadData];
+                }
+        }];
 }
 
 - (void) clearProjectFolder:(id)sender {

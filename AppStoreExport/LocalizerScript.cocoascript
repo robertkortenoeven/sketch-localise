@@ -12,15 +12,18 @@ var onSelectionChanged = function(context) {
     log("selection changed");
 }
 
-var selectLayersOfType_inContainer = function(doc, layerType, containerLayer) {
+// ------------------------------------
+// select layers by type
+
+var selectLayersOfType_inContainer = function(page, layerType, containerLayer) {
     
     // Filter layers using NSPredicate
-    var scope = (typeof containerLayer !== 'undefined') ? [containerLayer children] : [[doc currentPage] children],
+    var scope = (typeof containerLayer !== 'undefined') ? [containerLayer children] : [page children],
     predicate = NSPredicate.predicateWithFormat("(className == %@)", layerType),
     layers = [scope filteredArrayUsingPredicate:predicate];
     
     // Deselect current selection
-    [doc currentPage].changeSelectionBySelectingLayers(nil);
+    page.changeSelectionBySelectingLayers(nil);
     
     // Loop through filtered layers and select them
     var loop = [layers objectEnumerator], layer;
@@ -97,30 +100,8 @@ function localiseStringForKey(stringKey) {
 }
 
 function localiseTextLayersForPage(page) {
-    // ------------------------------------
-    //var predicate = NSPredicate.predicateWithFormat("name != %@", "")
-    //var layers = findFirstLayerMatchingPredicate_inContainer_filterByType(predicate, doc.currentPage(), MSTextLayer)
-    
-    // ------------------------------------
-    // select layers by type
-    var selectLayersOfType_inContainer = function(layerType, containerLayer) {
-        
-        // Filter layers using NSPredicate
-        var scope = (typeof containerLayer !== 'undefined') ? [containerLayer children] : [page children],
-        predicate = NSPredicate.predicateWithFormat("(className == %@)", layerType),
-        layers = [scope filteredArrayUsingPredicate:predicate];
-        
-        // Deselect current selection
-        //[[doc currentPage] deselectAllLayers]
-        
-        // Loop through filtered layers and select them
-        var loop = [layers objectEnumerator], layer;
-        while (layer = [loop nextObject]) {
-            [layer select:true byExpandingSelection:true]
-        }
-        log([layers count] + " " + layerType + "s selected")
-    }
     selectLayersOfType_inContainer("MSTextLayer")
+    
     var loopLayers= context.selection.objectEnumerator(), textLayer;
     while (textLayer = loopLayers.nextObject()) {
         textLayer.setNameIsFixed(0)
@@ -144,15 +125,16 @@ function duplicatePage (doc, page, name) {
 var localiseIOS = function (context) {
     platform = "iOS"
     var doc = context.document
+    page = [doc currentPage]
 
-    selectLayersOfType_inContainer(doc, "MSArtboardGroup")
+    //selectLayersOfType_inContainer(page, "MSArtboardGroup")
+    selectLayersOfType_inContainer(page,"MSTextLayer")
+
     //for count in languages...
-    //page = [doc currentPage]
     //duplicatePage(doc, page, "German")
     //localiseTextLayersForPage([doc currentPage])//select text layers and localize
     //[doc setCurrentPage:page] //back to base/english page
     log("js context: " + context);
-    log("yes?..................")
 }
 
 
