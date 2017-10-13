@@ -12,6 +12,24 @@ var onSelectionChanged = function(context) {
     log("selection changed");
 }
 
+var selectLayersOfType_inContainer = function(doc, layerType, containerLayer) {
+    
+    // Filter layers using NSPredicate
+    var scope = (typeof containerLayer !== 'undefined') ? [containerLayer children] : [[doc currentPage] children],
+    predicate = NSPredicate.predicateWithFormat("(className == %@)", layerType),
+    layers = [scope filteredArrayUsingPredicate:predicate];
+    
+    // Deselect current selection
+    [doc currentPage].changeSelectionBySelectingLayers(nil);
+    
+    // Loop through filtered layers and select them
+    var loop = [layers objectEnumerator], layer;
+    while (layer = [loop nextObject]) {
+        [layer select:true byExpandingSelection:true]
+    }
+    log([layers count] + " " + layerType + "s selected")
+}
+
 // find pages and layers
 var findPagesNamed = function(pageName) {
     var predicate = NSPredicate.predicateWithFormat("name == %@", pageName)
@@ -127,6 +145,7 @@ var localiseIOS = function (context) {
     platform = "iOS"
     var doc = context.document
 
+    selectLayersOfType_inContainer(doc, "MSArtboardGroup")
     //for count in languages...
     //page = [doc currentPage]
     //duplicatePage(doc, page, "German")
