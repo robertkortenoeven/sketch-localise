@@ -64,9 +64,6 @@
         NSString *actionID = @"localiseIOS.start";
         NSObject *appController = [NSClassFromString(@"AppController") valueForKeyPath:@"sharedInstance"];
         NSObject *pluginManager = [appController valueForKeyPath:@"pluginManager"];
-        //                                        NSDictionary *pluginContext = [appController valueForKeyPath:@"pluginContext"];
-        
-        NSLog(@"context: %@", _pluginContext);
         [pluginManager performSelector:NSSelectorFromString(@"sendToInterestedCommandsActionWithID:context:") withObject:actionID withObject:_pluginContext];
         
         
